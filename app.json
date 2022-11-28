@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "job-map",
+    "slug": "job-map",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "job-map"
+}
