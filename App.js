@@ -1,8 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {
+	createStackNavigator,
+	TransitionSpecs,
+	CardStyleInterpolators,
+} from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AuthScreen from './screens/AuthScreen';
@@ -11,14 +14,49 @@ import MapScreen from './screens/MapView';
 import DeckScreen from './screens/DeckScreen';
 import SettingScreen from './screens/SettingScreen';
 import ReviewScreen from './screens/ReviewScreen';
+import { Button } from 'react-native-elements';
+import { configureStore } from '@reduxjs/toolkit';
 
 function StackScreens() {
 	const Stack = createStackNavigator();
+	const navigation = useNavigation();
 
 	return (
 		<Stack.Navigator initialRouteName="ReviewScreen">
-			<Stack.Screen name="SettingScreen" component={SettingScreen} />
-			<Stack.Screen name="ReviewScreen" component={ReviewScreen} />
+			<Stack.Screen
+				name="SettingScreen"
+				component={SettingScreen}
+				options={{
+					cardStyleInterpolator:
+						CardStyleInterpolators.forFadeFromBottomAndroid,
+					headerTitle: 'Settings',
+					headerTitleAlign: 'center',
+					headerLeft: () => (
+						<Button
+							title="Review"
+							onPress={() => navigation.navigate('ReviewScreen')}
+							type="outline"
+						/>
+					),
+				}}
+			/>
+			<Stack.Screen
+				name="ReviewScreen"
+				component={ReviewScreen}
+				options={{
+					headerTitle: 'Review',
+					headerTitleAlign: 'center',
+					cardStyleInterpolator:
+						CardStyleInterpolators.forFadeFromBottomAndroid,
+					headerRight: () => (
+						<Button
+							title="Settings"
+							onPress={() => navigation.navigate('SettingScreen')}
+							type="outline"
+						/>
+					),
+				}}
+			/>
 		</Stack.Navigator>
 	);
 }

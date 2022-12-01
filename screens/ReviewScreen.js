@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getHeaderTitle } from '@react-navigation/elements';
+import { Button } from 'react-native-elements';
 import SettingScreen from './SettingScreen';
 
 function ReviewScreen() {
@@ -9,10 +9,6 @@ function ReviewScreen() {
 	return (
 		<View>
 			<Text>ReviewScreen</Text>
-			<Button
-				title="Back to Settings"
-				onPress={() => navigation.navigate('SettingScreen')}
-			/>
 		</View>
 	);
 }
