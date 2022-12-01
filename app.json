@@ -3,9 +3,15 @@
     "name": "job-map",
     "slug": "job-map",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./assets/rocket-book.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#CDF0EA"
+    },
+    "web": {
+      "favicon": "./assets/images/space-dog.png"
+    }
   },
   "name": "job-map"
 }
