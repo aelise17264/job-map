@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
@@ -13,7 +13,7 @@ function Slides(props) {
 		if (index === props.data.length - 1) {
 			return (
 				<Button
-					title="Onwards!"
+					title="Let's Go!"
 					raised
 					buttonStyle={styles.buttonStyle}
 					onPress={() => navigation.navigate('Auth')}
