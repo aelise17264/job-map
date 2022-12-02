@@ -25,20 +25,12 @@ class MapScreen extends Component {
 	};
 
 	onRegionChangeComplete = (region) => {
-		// console.log(region);
 		this.setState({ region });
 	};
 	pageNavigation = () => {
-		const navigation = useNavigation();
-
-		navigation.navigate('Deck');
-		console.log('navigate');
-	};
-
-	onButtonPress = () => {
 		fetchJobs(this.state.region);
-		this.pageNavigation();
-		console.log('function called', this.state.region);
+		this.props.navigation.navigate('Deck');
+		console.log(this.state.region);
 	};
 	render() {
 		if (!this.state.mapLoaded) {
@@ -62,7 +54,7 @@ class MapScreen extends Component {
 						title="Search This Area"
 						backgroundColor="#009688"
 						icon={{ name: 'search' }}
-						onPress={this.onButtonPress.bind(this)}
+						onPress={this.pageNavigation}
 					/>
 				</View>
 			</View>
