@@ -9,6 +9,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#CDF0EA"
     },
+   
     "web": {
       "favicon": "./assets/images/space-dog.png"
     }

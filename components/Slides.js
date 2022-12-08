@@ -7,7 +7,7 @@ import AuthScreen from '../screens/AuthScreen';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 function Slides(props) {
-	const navigation = useNavigation();
+	// const navigation = useNavigation();
 
 	function renderLastSlide(index) {
 		if (index === props.data.length - 1) {
@@ -16,7 +16,7 @@ function Slides(props) {
 					title="Let's Go!"
 					raised
 					buttonStyle={styles.buttonStyle}
-					onPress={() => navigation.navigate('Auth')}
+					onPress={() => this.props.navigation.navigate('Auth')}
 				/>
 			);
 		}

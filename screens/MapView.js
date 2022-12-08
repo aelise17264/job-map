@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { View, ActivityIndicator, Text } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
-import { connect, Provider } from 'react-redux';
 import { fetchJobs } from '../actions/job_actions';
-import { useNavigation } from '@react-navigation/native';
-import * as actions from '../actions';
+import { Wrapper, Status } from '@googlemaps/react-wrapper';
+
 import DeckScreen from './DeckScreen';
 
 class MapScreen extends Component {
 	// store = store.default.getState();
+
 	state = {
 		mapLoaded: false,
 		region: {
@@ -29,8 +29,8 @@ class MapScreen extends Component {
 	};
 	pageNavigation = () => {
 		fetchJobs(this.state.region);
-		this.props.navigation.navigate('Deck');
-		console.log(this.state.region);
+		// this.props.navigation.navigate('Deck');
+		// console.log(this.state.region);
 	};
 	render() {
 		if (!this.state.mapLoaded) {
@@ -41,6 +41,7 @@ class MapScreen extends Component {
 			);
 		}
 		return (
+			// <Wrapper apiKey={MY_KEY}>
 			<View>
 				<Text>MapView</Text>
 				<MapView
@@ -58,7 +59,7 @@ class MapScreen extends Component {
 					/>
 				</View>
 			</View>
-			// </View>
+			// </Wrapper>
 		);
 	}
 }
