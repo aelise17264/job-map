@@ -4,6 +4,7 @@ import { Button, Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
 import { fetchJobs } from '../actions/job_actions';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
+import 'react-native-geocoder';
 
 import DeckScreen from './DeckScreen';
 
@@ -29,6 +30,7 @@ class MapScreen extends Component {
 	};
 	pageNavigation = () => {
 		fetchJobs(this.state.region);
+
 		// this.props.navigation.navigate('Deck');
 		// console.log(this.state.region);
 	};
